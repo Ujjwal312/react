@@ -18,7 +18,7 @@ const Items = (props) => {
             return allactivities;
         }
         else {
-            //main sirf specific categiry ka data array krunga  
+          
             return activities[category];      
         }
 

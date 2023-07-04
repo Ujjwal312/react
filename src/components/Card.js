@@ -1,6 +1,6 @@
 
-
-function Card({id, image,info,price,name, removeshop})  {
+import { Link } from "react-router-dom";
+function Card({id, image,info,price,name, removeshop,setIsLoggedIn,isLoggedIn})  {
 
     
 
@@ -25,10 +25,18 @@ function Card({id, image,info,price,name, removeshop})  {
                  
                 </div>
             </div>
-
+         {isLoggedIn&&
             <button className="btn-red" onClick={() => removeshop(id)}>
                 Add to card
             </button>
+}
+{!isLoggedIn&&
+<Link to="/login">
+            <button className="btn-red" >
+                Add to card
+            </button>
+    </Link>
+}
         </div>
         
     );

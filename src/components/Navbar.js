@@ -4,8 +4,8 @@ import { Link } from "react-router-dom"
 import { toast } from "react-hot-toast";
 
 const Navbar=(props)=>{
-let islogin=props.islogin;
-let setlogin=props.setlogin;
+let islogin=props.isLoggedIn;
+let setlogin=props.setIsLoggedIn;
 
 return(
   
@@ -16,21 +16,24 @@ return(
 <nav>
 
 <ul className=" text-richblack-100 flex gap-x-6">
-<li>
+<li className=" hover:text-violet-600 ">
     <Link to="/">Home</Link>
 </li>
-<li>
-    <Link to="/Plans">planned Activity</Link>
+<li className=" hover:text-violet-600 ">
+    <Link to="/Home">Fintness activity</Link>
 </li>
-<li>
-    <Link to="">Contact</Link>
+<li className=" hover:text-violet-600 ">
+    <Link to="/Plans">Fintness Shop</Link>
+</li>
+<li className=" hover:text-violet-600 " >
+    <Link to="/contact">Contact</Link>
 </li>
 </ul>
 </nav>
 <div className="flex items-center gap-x-4 ">
 {!islogin &&
 <Link to="/login">
-<button className="bg-richblack-800  text-richblack-100 py-[8px] px-[12px] my-3
+<button className="bg-richblack-800  hover:bg-blue-500 text-richblack-100 py-[8px] px-[12px] my-3
 rounded-[8px] border border-richblack-700  ">
     Login
 </button>
@@ -39,20 +42,20 @@ rounded-[8px] border border-richblack-700  ">
 }
 { !islogin&&
 <Link to="/signup">
-<button className="bg-richblack-800  text-richblack-100 py-[8px] px-[12px] my-3
+<button className="bg-richblack-800  hover:bg-blue-500 text-richblack-100 py-[8px] px-[12px] my-3
 rounded-[8px] border border-richblack-700  ">
     Sign Up
 </button>
 </Link>
 }
-{ islogin&&
+{islogin&&
 <Link to="/">
 <button onClick={()=>
 {
 setlogin(false);
 toast.success("Logged Out");
 }
-} className="bg-richblack-800  text-richblack-100 py-[8px] px-[12px] my-3
+} className="bg-richblack-800  hover:bg-red-500  text-richblack-100 py-[8px] px-[12px] my-3
 rounded-[8px] border border-richblack-700  ">
  Logout
 </button>
@@ -60,7 +63,7 @@ rounded-[8px] border border-richblack-700  ">
 }
 {islogin&&
 <Link to="/dashboard">
-<button className="bg-richblack-800  text-richblack-100 py-[8px] px-[12px] my-3
+<button className="bg-richblack-800  hover:bg-blue-500 text-richblack-100 py-[8px] px-[12px] my-3
 rounded-[8px] border border-richblack-700  ">
     Dashboard
 </button>

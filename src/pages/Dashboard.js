@@ -1,10 +1,16 @@
 import React from 'react'
-
-const Dashboard = () => {
+import { Route, Routes } from "react-router-dom";
+import Dashboard2 from "../components/Dashboard";
+import GoalForm from '../components/GoalForm';
+const Dashboard = (props) => {
+  let nam=props.nam;
+  let setname=props.setname;
+  let selectshop=props.selectshop;
   return (
-    <div className='flex justify-center items-center text-white text-3xl h-full'>
-      Welcome to StudyNotion!!
-    </div>
+    <Routes>
+    <Route path="/" element={<Dashboard2 selectshop={selectshop} setname={setname} nam={nam}/>} />
+    <Route path="/addactivity" element={<GoalForm/>} />
+  </Routes>
   )
 }
 

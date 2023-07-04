@@ -2,12 +2,21 @@ import React, {useState} from "react";
 import data from './components/data2'
 import Shop from "./components/Shop";
 import "./index2.css";
-const App = () => {
+const App = ({setselectshop,selectshop,setIsLoggedIn,isLoggedIn}) => {
 
   const [shop, setshop] = useState(data);
+  
+
+
 
   function removeshop(id) {
     const newshop = shop.filter(shop => shop.id !== id);
+    const newshop2 = shop.filter(shop => shop.id === id);
+    console.log(id);
+
+setselectshop(oldArray => [...oldArray, newshop2]);
+  
+    console.log(selectshop);
     setshop(newshop);
   }
 
@@ -24,7 +33,7 @@ const App = () => {
 
   return (
     <div className="App">
-      <Shop shop={shop} removeshop={removeshop}></Shop>
+      <Shop shop={shop} removeshop={removeshop} setIsLoggedIn={setIsLoggedIn} isLoggedIn ={isLoggedIn}></Shop>
     </div>
   )
 };
